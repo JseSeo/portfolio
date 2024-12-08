@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>방명록</title>
+    <link rel="stylesheet" href="guestBook.css">
+</head>
+<body>
+    <h1>방명록</h1>
+
+    <div id="guestbookEntries"></div>
+
+    <h2>새 글 남기기</h2>
+    <form id="guestbookForm">
+        <label for="name">이름:</label>
+        <input type="text" id="name" name="name" required>
+        <br><br>
+        
+        <label for="message">메시지:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br><br>
+        
+        <button type="submit">제출하기</button>
+    </form>
+
+    <p id="responseMessage"></p>
+
+    <script>
+        const apiUrl = 'https://en2vlsu5y5.execute-api.ap-northeast-2.amazonaws.com/prod';
+
+        // 방명록 항목을 불러오는 함수
+        async function loadGuestbookEntries() {
+            const guestbookEntries = document.getElementById('guestbookEntries');
+            guestbookEntries.innerHTML = '불러오는 중...';
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                let items = await response.json();
+
+                // isDeleted가 false인 항목만 필터링
+                items = items.filter(item => !item.isDeleted);
+
+                // 시간순 정렬 (최신 항목이 위로)
+                items.sort((a, b) => b.createdAt - a.createdAt);
+
+                guestbookEntries.innerHTML = '';
+
+                if (items.length === 0) {
+                    guestbookEntries.innerHTML = '아직 방명록에 글이 없습니다.';
+                } else {
+                    items.forEach(item => {
+                        const entry = document.createElement('div');
+                        entry.innerHTML = `
+                            <strong>${item.name}</strong>: 
+                            <span class="message">${item.message}</span>
+                            <button class="delete-button">삭제</button>
+                            <em>${new Date(item.createdAt * 1000).toLocaleString()}</em>
+                        `;
+
+                        // "삭제" 버튼 이벤트 핸들링
+                        const deleteButton = entry.querySelector('.delete-button');
+                        deleteButton.addEventListener('click', async () => {
+                            if (confirm("이 글을 삭제하시겠습니까?")) {
+                                await deleteGuestbookEntry(item.id);
+                                loadGuestbookEntries(); // 삭제 후 목록 새로 고침
+                            }
+                        });
+
+                        guestbookEntries.appendChild(entry);
+                    });
+                }
+            } catch (error) {
+                guestbookEntries.innerHTML = '방명록 항목을 불러오는 중 오류가 발생했습니다.';
+                console.error("Error:", error);
+            }
+        }
+
+        // 방명록 항목을 삭제하는 함수
+        async function deleteGuestbookEntry(id) {
+            try {
+                const response = await fetch(`${apiUrl}/${id}`, {
+                    method: 'PATCH', // Soft 삭제를 위한 PATCH 메서드
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        isDeleted: true // Soft 삭제 플래그 설정
+                    })
+                });
+
+                if (!response.ok) {
+                    console.error("삭제 요청 실패:", response.statusText);
+                }
+            } catch (error) {
+                console.error("삭제 요청 중 오류 발생:", error);
+            }
+        }
+
+        // 새 방명록 항목을 등록하는 함수
+        document.getElementById('guestbookForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const message = document.getElementById('message').value;
+            const responseMessage = document.getElementById('responseMessage');
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: name,
+                        message: message
+                    })
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    responseMessage.innerText = "방명록에 글이 성공적으로 남겨졌습니다!";
+                    document.getElementById('guestbookForm').reset();
+
+                    // 방명록 항목 다시 불러오기
+                    loadGuestbookEntries();
+                } else {
+                    responseMessage.innerText = "오류가 발생했습니다: " + (data.message || data);
+                }
+            } catch (error) {
+                responseMessage.innerText = "요청 중 오류가 발생했습니다.";
+                console.error("Error:", error);
+            }
+        });
+
+        // 페이지 로딩 시 방명록 항목 불러오기
+        window.onload = loadGuestbookEntries;
+    </script>
+</body>
+</html>

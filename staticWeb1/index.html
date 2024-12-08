@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>식료품 회사</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/@egjs/flicking/dist/flicking.pkgd.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking.css" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking-inline.css" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <!-- 헤더 영역 -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">대표소개</a></li>
+                <li><a href="#products">제품소개</a></li>
+                <li><a href="#guestbook">방명록</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 대표소개 섹션 -->
+    <section id="about">
+        <h1>우리의 이야기를 소개합니다</h1>
+        <p>고객과 함께하는 최고의 식료품을 제공합니다.</p>
+    </section>
+
+    <!-- 제품소개 섹션 -->
+    <section id="products">
+        <h2>우리의 제품</h2>
+        <p>자연에서 얻은 신선한 재료를 사용하여 건강한 식품을 만듭니다.</p>
+        <!-- 여기에는 제품 이미지나 설명을 추가할 수 있습니다 -->
+    </section>
+
+    <!-- 방명록 섹션 -->
+    <section id="guestbook">
+        <iframe src="guestBook.html" width="100%" height="600px" frameborder="0"></iframe>
+    </section>
+
+    <!-- 제휴업체 섹션 -->
+    <section id="partners">
+        <h2>제휴업체</h2>
+        <div id="flick" class="flicking-viewport">
+            <div class="flicking-camera">
+                <div class="flicking-item pink" style="width: 150px;">🍰 금은동 케이크</div>
+                <div class="flicking-item orange" style="width: 200px;">🍗 호랑이 치킨</div>
+                <div class="flicking-item yellow" style="width: 300px;">🥐 바게트 킹</div>
+                <div class="flicking-item blue" style="width: 250px;">🥛 아침 목장</div>
+                <div class="flicking-item green" style="width: 200px;">🍎 해피 과일</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>&copy; 2024 식료품 회사</p>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const flicking = new Flicking("#flick", {
+                circular: true,
+                bound: true
+            });
+        });
+    </script>
+</body>
+
+</html>

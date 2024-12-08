@@ -1,0 +1,131 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  /* Header 스타일 */
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+  }
+  
+  header nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+  }
+  
+  header nav ul li {
+    margin: 0 1rem;
+  }
+  
+  header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+
+  #about, #products, #guestbook {
+    background-color: #f4f4f4;
+    margin: 1rem 0;
+    border-radius: 8px;
+  }
+  
+  .partner-logos {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+  }
+  
+  .partner-logos button {
+    flex: 0 0 auto;
+    padding: 1rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .partner-logos button:hover {
+    background-color: #eee;
+  }
+  
+  /* Footer 스타일 */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+  }
+  
+  /* 반응형 스타일 */
+  @media (max-width: 768px) {
+    header nav ul {
+      flex-direction: column;
+    }
+  
+    .partner-logos {
+      gap: 0.5rem;
+    }
+  }
+  
+/* Section 스타일 */
+section {
+    padding: 2rem 0;
+    text-align: center;
+}
+
+/* 제휴업체 섹션 */
+#partners {
+    background-color: #ddd;
+    
+}
+
+.flicking-viewport {
+    width: 100%;
+    overflow: hidden;
+}
+
+.flicking-camera {
+    display: flex;
+}
+
+.flicking-camera > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 5px;
+}
+
+.flicking-item.pink { background-color: #FFC0CB; } /* 핑크 */
+.flicking-item.orange { background-color: #FFB347; } /* 오렌지 */
+.flicking-item.yellow { background-color: #FFD700; } /* 노란색 */
+.flicking-item.blue { background-color: #8FC1E3; } /* 하늘색 */
+.flicking-item.green { background-color: #98FB98; } /* 연두 */
+
+#guestbook iframe {
+    max-width: 800px;
+    margin: 20px auto;
+    display: block;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
