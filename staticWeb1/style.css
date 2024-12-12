@@ -85,14 +85,43 @@
   
 /* Section 스타일 */
 section {
-    padding: 2rem 0;
-    text-align: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-/* 제휴업체 섹션 */
-#partners {
+/* about 섹션 스타일 */
+#about {
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#about iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+/* portfolio 섹션 스타일 */
+#portfolio {
+    height: 80vh;  /* projects 섹션을 제외한 나머지 크기 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* projects 섹션 스타일 */
+#projects {
+    height: 20vh;  /* 이전 30vh의 2/3 크기로 조정 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: #ddd;
-    
 }
 
 .flicking-viewport {
@@ -128,18 +157,4 @@ section {
     display: block;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-#about {
-    height: 100vh;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-}
-
-#about iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: block;
 }
