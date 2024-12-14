@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>식료품 회사</title>
+    <title>김재서 포트폴리오</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@egjs/flicking/dist/flicking.pkgd.min.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking.css" crossorigin="anonymous" />
@@ -17,9 +17,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="#about">대표소개</a></li>
-                <li><a href="#products">제품소개</a></li>
-                <li><a href="#guestbook">방명록</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#guestbook">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -29,13 +29,7 @@
         <iframe src="about.html" frameborder="0"></iframe>
     </section>
 
-    <!-- 제품소개 섹션 (portfolio) -->
-    <section id="portfolio">  
-        <h2>포트폴리오</h2>
-        <p>자연에서 얻은 신선한 재료를 사용하여 건강한 식품을 만듭니다.</p>
-    </section>
-
-    <!-- 제휴업체 섹션 (projects) -->
+    <!-- 프로젝트 섹션 -->
     <section id="projects">
         <h2>프로젝트</h2>
         <div id="flick" class="flicking-viewport">
@@ -49,6 +43,10 @@
         </div>
     </section>
 
+    <!-- 포트폴리오 섹션 -->
+    <section id="portfolio">
+    </section>
+
     <!-- 방명록 섹션 -->
     <section id="guestbook">
         <iframe src="guestBook.html" width="100%" height="600px" frameborder="0"></iframe>
@@ -56,7 +54,7 @@
 
     <!-- 푸터 -->
     <footer>
-        <p>&copy; 2024 식료품 회사</p>
+        <p>&copy; 포트폴리오</p>
     </footer>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
@@ -70,10 +68,9 @@
             const portfolioSection = document.querySelector('#portfolio');
 
             flickingItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    const partnerName = this.textContent.trim().split(' ')[1]; // 이모지 제외하고 파트너명만 추출
-
-                    if (partnerName === "호랑이") { // orange item 클릭 시
+                item.addEventListener('click', function () {
+                    // orange 클래스를 가진 아이템인지 확인
+                    if (this.classList.contains('orange')) {
                         fetch('portfolio.html')
                             .then(response => response.text())
                             .then(html => {
