@@ -26,7 +26,7 @@
 
     <!-- 대표소개 섹션 -->
     <section id="about">
-        <iframe src="about.html" frameborder="0"></iframe>
+        <iframe src="pages/about.html" frameborder="0"></iframe>
     </section>
 
     <!-- 프로젝트 섹션 -->
@@ -49,7 +49,7 @@
 
     <!-- 방명록 섹션 -->
     <section id="guestbook">
-        <iframe src="guestBook.html" width="100%" height="600px" frameborder="0"></iframe>
+        <iframe src="pages/guestBook.html" width="100%" height="600px" frameborder="0"></iframe>
     </section>
 
     <!-- 푸터 -->
@@ -68,15 +68,29 @@
             const portfolioSection = document.querySelector('#portfolio');
 
             flickingItems.forEach(item => {
-                item.addEventListener('click', function () {
-                    // orange 클래스를 가진 아이템인지 확인
+                item.addEventListener('click', function() {
                     if (this.classList.contains('orange')) {
-                        fetch('portfolio.html')
-                            .then(response => response.text())
-                            .then(html => {
-                                portfolioSection.innerHTML = html;
-                                portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                            });
+                        Promise.all([
+                            fetch('pages/portfolio.html'),
+                            fetch('styles/portfolio.css')
+                        ])
+                        .then(async ([htmlResponse, cssResponse]) => {
+                            const html = await htmlResponse.text();
+                            const css = await cssResponse.text();
+                            
+                            // CSS 스타일 적용
+                            const styleElement = document.createElement('style');
+                            styleElement.textContent = css;
+                            document.head.appendChild(styleElement);
+                            
+                            // HTML 콘텐츠에서 이미지 경로 수정
+                            const modifiedHtml = html.replace('src="../images/aws.png"', 'src="images/aws.png"');
+                            
+                            // 수정된 HTML 콘텐츠 적용
+                            portfolioSection.innerHTML = modifiedHtml;
+                            portfolioSection.scrollIntoView({ behavior: 'smooth' });
+                        })
+                        .catch(error => console.error('Error:', error));
                     }
                 });
             });

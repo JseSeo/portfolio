@@ -122,12 +122,101 @@ section {
 
 /* projects 섹션 스타일 */
 #projects {
-    height: 20vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: #ddd;
+    background: linear-gradient(45deg, #1e1e1e, #2d2d2d);
+    padding: 3rem 0;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+#projects h2 {
+    text-align: center;
+    color: #569cd6;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(86, 156, 214, 0.3);
+}
+
+.flicking-viewport {
+    margin: 0 auto;
+    max-width: 1000px;
+    padding: 1rem;
+}
+
+.flicking-camera {
+    gap: 1rem;
+}
+
+.flicking-item {
+    background-color: #2d2d2d;
+    border: 2px solid #569cd6;
+    border-radius: 8px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(86, 156, 214, 0.1);
+    font-family: 'Consolas', 'Monaco', monospace;
+    position: relative;
+}
+
+/* 각 항목별 스타일 */
+.flicking-item.pink {
+    color: #c586c0;
+    border-color: #c586c0;
+}
+
+.flicking-item.orange {
+    color: #ce9178;
+    border-color: #ce9178;
+}
+
+.flicking-item.yellow {
+    color: #dcdcaa;
+    border-color: #dcdcaa;
+}
+
+.flicking-item.blue {
+    color: #4fc1ff;
+    border-color: #4fc1ff;
+}
+
+.flicking-item.green {
+    color: #4ec9b0;
+    border-color: #4ec9b0;
+}
+
+/* 호버 효과 */
+.flicking-item:hover {
+    transform: translateY(-5px);
+}
+
+.flicking-item.pink:hover {
+    box-shadow: 0 5px 15px rgba(197, 134, 192, 0.3);
+}
+
+.flicking-item.orange:hover {
+    box-shadow: 0 5px 15px rgba(206, 145, 120, 0.3);
+}
+
+.flicking-item.yellow:hover {
+    box-shadow: 0 5px 15px rgba(220, 220, 170, 0.3);
+}
+
+.flicking-item.blue:hover {
+    box-shadow: 0 5px 15px rgba(79, 193, 255, 0.3);
+}
+
+.flicking-item.green:hover {
+    box-shadow: 0 5px 15px rgba(78, 201, 176, 0.3);
+}
+
+/* 코드 스타일 효과 */
+.flicking-item::before {
+    content: "{ ";
+    opacity: 0.5;
+}
+
+.flicking-item::after {
+    content: " }";
+    opacity: 0.5;
 }
 
 /* portfolio 섹션 스타일 */
@@ -144,33 +233,6 @@ section {
     margin: 0 auto;
     padding: 2rem;
 }
-
-.flicking-viewport {
-    width: 100%;
-    overflow: hidden;
-}
-
-.flicking-camera {
-    display: flex;
-}
-
-.flicking-camera > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 5px;
-}
-
-.flicking-item.pink { background-color: #FFC0CB; } /* 핑크 */
-.flicking-item.orange { background-color: #FFB347; } /* 오렌지 */
-.flicking-item.yellow { background-color: #FFD700; } /* 노란색 */
-.flicking-item.blue { background-color: #8FC1E3; } /* 하늘색 */
-.flicking-item.green { background-color: #98FB98; } /* 연두 */
 
 #guestbook iframe {
     max-width: 800px;

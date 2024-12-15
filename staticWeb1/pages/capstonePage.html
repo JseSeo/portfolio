@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/CapstonePage.css">
+    <title>재능대 캡스톤 홈페이지 프로젝트</title>
+</head>
+<body>
+    <section id="capstone">
+        <div class="capstone-container">
+            <h1>재능대학교 캡스톤 홈페이지</h1>
+            
+            <div class="project-overview">
+                <h2>프로젝트 개요</h2>
+                <p>매년 교내에서 진행되어 전시되고 사라지는 캡스톤 프로젝트 결과물을 캡스톤 홈페이지에 전시함으로써 더 많은 전시 및 홍보 기회와 후배님들께 동기부여가 되고자 했습니다.</p>
+                <p>본 프로젝트는 AWS 클라우드를 기반으로 설계된 캡스톤 프로젝트 관리 웹사이트로, 프론트엔드와 백엔드가 분리된 구조를 채택하였습니다. 사용자는 웹사이트를 통해 다양한 프로젝트 정보를 등록하고, 조회 및 관리할 수 있습니다.</p>
+                <div class="project-link">
+                    <p>프로젝트 사이트: <a href="https://jeiu-project-02-frontend.s3.us-east-2.amazonaws.com/front-end/templates/index.html" target="_blank">캡스톤 프로젝트 홈페이지 바로가기</a></p>
+                </div>
+                <div class="demonstration-video">
+                    <h3>프로젝트 시연 영상</h3>
+                    <div class="video-container">
+                        <video controls width="100%">
+                            <source src="../images/demonstrationMV.mp4" type="video/mp4">
+                            브라우저가 비디오 태그를 지원하지 않습니다.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div class="architecture-section">
+                <h2>아키텍처 상세 설명</h2>
+                <div class="architecture-image">
+                    <img src="../images/capstoneArchitecture.png" alt="캡스톤 프로젝트 아키텍처 다이어그램">
+                </div>
+                
+                <div class="component">
+                    <h3>프론트엔드 (Front-End)</h3>
+                    <ul>
+                        <li>HTML, CSS, JavaScript로 구현된 사용자 인터페이스(UI)와 사용자 경험(UX)</li>
+                        <li>AWS S3를 활용한 정적 파일 호스팅</li>
+                        <li>반응형 디자인을 통한 다양한 디바이스 지원</li>
+                    </ul>
+                </div>
+
+                <div class="component">
+                    <h3>백엔드 (Back-End)</h3>
+                    <ul>
+                        <li>AWS EC2에 배포된 Spring Framework 기반 개발</li>
+                        <li>Spring Data JPA를 통한 객체지향적 데이터베이스 접근</li>
+                        <li>인증과 권한 관리를 포함한 RESTful API 제공</li>
+                        <li>RestDocs를 활용한 API 문서화</li>
+                    </ul>
+                </div>
+
+                <div class="component">
+                    <h3>데이터베이스 (Database)</h3>
+                    <ul>
+                        <li>AWS RDS의 MySQL 데이터베이스 활용</li>
+                        <li>데이터 백업과 복원, 보안 및 확장성 제공</li>
+                        <li>프로젝트 데이터의 신뢰성 보장</li>
+                    </ul>
+                </div>
+
+                <div class="aws-services">
+                    <h3>AWS 클라우드 활용</h3>
+                    <div class="service-grid">
+                        <div class="service">
+                            <h4>EC2</h4>
+                            <p>백엔드 서버 호스팅 및 확장 가능한 환경 운영</p>
+                        </div>
+                        <div class="service">
+                            <h4>S3</h4>
+                            <p>정적 파일 배포를 통한 빠르고 안정적인 콘텐츠 제공</p>
+                        </div>
+                        <div class="service">
+                            <h4>RDS</h4>
+                            <p>관계형 데이터베이스 운영으로 높은 가용성과 성능 보장</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="features">
+                <h2>아키텍처의 주요 특징</h2>
+                <ul>
+                    <li><strong>확장성:</strong> AWS 클라우드 인프라를 활용한 트래픽 대응</li>
+                    <li><strong>유지보수성:</strong> Spring Data JPA와 RestDocs를 통한 효율적인 관리</li>
+                    <li><strong>안정성:</strong> AWS RDS와 EC2를 통한 안정적인 서비스 운영</li>
+                </ul>
+            </div>
+
+            <div class="benefits">
+                <h2>기대 효과</h2>
+                <p>본 아키텍처를 통해 사용자는 쉽고 빠르게 프로젝트를 관리할 수 있으며, AWS의 강력한 클라우드 인프라를 활용하여 고성능, 고가용성의 웹 서비스를 제공할 수 있습니다.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

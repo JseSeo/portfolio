@@ -1,0 +1,183 @@
+.capstone-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #2c3e50;
+    font-size: 2.5rem;
+}
+
+h2 {
+    color: #2c3e50;
+    margin: 2rem 0 1.5rem;
+    font-size: 2rem;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    color: #2c3e50;
+    margin: 1.5rem 0 1rem;
+    font-size: 1.5rem;
+}
+
+.project-overview {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.component {
+    background-color: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.component ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.component li {
+    position: relative;
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+}
+
+.component li::before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: -1rem;
+}
+
+.aws-services {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.service {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.service h4 {
+    color: #3498db;
+    margin-bottom: 0.8rem;
+}
+
+.features ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.features li {
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.features strong {
+    color: #3498db;
+    margin-right: 0.5rem;
+}
+
+.benefits {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.project-link {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+}
+
+.project-link a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-link a:hover {
+    text-decoration: underline;
+    color: #2980b9;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .capstone-container {
+        padding: 1rem;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    h2 {
+        font-size: 1.6rem;
+    }
+    
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+} 
+
+.demonstration-video {
+    margin-top: 2rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.demonstration-video h3 {
+    margin-bottom: 1rem;
+    color: #2c3e50;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 비율 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+} 
