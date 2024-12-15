@@ -6,8 +6,9 @@
   }
   
   body {
-    font-family: Arial, sans-serif;
-    color: #333;
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
     line-height: 1.6;
     display: flex;
     flex-direction: column;
@@ -17,13 +18,12 @@
   
   /* Header 스타일 */
   header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
-    position: fixed;
+    background-color: #2d2d2d;
+    padding: 1rem 0;
+    border-bottom: 2px solid #569cd6;
+    box-shadow: 0 2px 10px rgba(86, 156, 214, 0.2);
+    position: sticky;
     top: 0;
-    left: 0;
-    width: 100%;
     z-index: 1000;
   }
   
@@ -31,6 +31,9 @@
     display: flex;
     justify-content: center;
     list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 2rem;
   }
   
   header nav ul li {
@@ -38,9 +41,36 @@
   }
   
   header nav ul li a {
-    color: #fff;
+    color: #569cd6;
     text-decoration: none;
-    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  header nav ul li a::before {
+    content: "<";
+    opacity: 0;
+    margin-right: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  header nav ul li a::after {
+    content: "/>";
+    opacity: 0;
+    margin-left: 5px;
+    transition: all 0.3s ease;
+  }
+  
+  header nav ul li a:hover {
+    background-color: rgba(86, 156, 214, 0.1);
+    color: #4fc1ff;
+  }
+  
+  header nav ul li a:hover::before,
+  header nav ul li a:hover::after {
+    opacity: 1;
   }
   
 
@@ -71,11 +101,47 @@
   
   /* Footer 스타일 */
   footer {
-    background-color: #333;
-    color: #fff;
+    background-color: #2d2d2d;
+    color: #569cd6;
     text-align: center;
-    padding: 1rem;
-    margin-top: auto;
+    padding: 1rem 0;
+    border-top: 2px solid #569cd6;
+    box-shadow: 0 -2px 10px rgba(86, 156, 214, 0.2);
+  }
+  
+  footer p {
+    margin: 0;
+    font-size: 0.9rem;
+    position: relative;
+    display: inline-block;
+  }
+  
+  footer p::before {
+    content: "/* ";
+    color: #6a9955;
+  }
+  
+  footer p::after {
+    content: " */";
+    color: #6a9955;
+  }
+  
+  /* 스크롤바 스타일 */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #1e1e1e;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #569cd6;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #4fc1ff;
   }
   
   /* 반응형 스타일 */
@@ -161,6 +227,8 @@ section {
 .flicking-item.pink {
     color: #c586c0;
     border-color: #c586c0;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .flicking-item.orange {
@@ -189,7 +257,9 @@ section {
 }
 
 .flicking-item.pink:hover {
-    box-shadow: 0 5px 15px rgba(197, 134, 192, 0.3);
+    background-color: rgba(86, 156, 214, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .flicking-item.orange:hover {
@@ -235,8 +305,8 @@ section {
 }
 
 #guestbook iframe {
-    max-width: 800px;
-    margin: 20px auto;
+    max-width: 100%;
+    margin: 0px auto;
     display: block;
     background-color: white;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);

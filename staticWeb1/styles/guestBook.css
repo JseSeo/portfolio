@@ -1,42 +1,60 @@
+html {
+    background-color: #1e1e1e;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Consolas', 'Monaco', monospace;
+    background-color: #1e1e1e;
+    color: #d4d4d4;
+}
+
 body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
-    font-family: Arial, sans-serif;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #569cd6;
     margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(86, 156, 214, 0.3);
 }
 
 h2 {
-    color: #444;
+    color: #4ec9b0;
     margin-top: 40px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #569cd6;
 }
 
 form {
-    background-color: #f9f9f9;
+    background-color: #2d2d2d;
     padding: 20px;
     border-radius: 8px;
     margin-bottom: 40px;
+    border: 1px solid #569cd6;
+    box-shadow: 0 0 20px rgba(86, 156, 214, 0.1);
 }
 
 label {
     display: block;
     margin-bottom: 5px;
-    color: #555;
+    color: #9cdcfe;
 }
 
 input[type="text"], textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #569cd6;
     border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ce9178;
+    font-family: 'Consolas', 'Monaco', monospace;
 }
 
 textarea {
@@ -45,22 +63,30 @@ textarea {
 }
 
 button {
-    background-color: #333;
-    color: white;
+    background-color: #569cd6;
+    color: #1e1e1e;
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-weight: bold;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background-color: #444;
+    background-color: #4fc1ff;
+    box-shadow: 0 0 15px rgba(86, 156, 214, 0.5);
+    transform: translateY(-2px);
 }
 
 #responseMessage {
-    color: #28a745;
+    color: #6a9955;
     margin: 20px 0;
     text-align: center;
+    padding: 10px;
+    background-color: rgba(106, 153, 85, 0.1);
+    border-radius: 4px;
 }
 
 #guestbookEntries {
@@ -68,26 +94,56 @@ button:hover {
 }
 
 #guestbookEntries > div {
-    background-color: white;
+    background-color: #2d2d2d;
     padding: 15px;
     margin-bottom: 10px;
-    border: 1px solid #eee;
+    border: 1px solid #569cd6;
     border-radius: 4px;
+    position: relative;
+}
+
+#guestbookEntries > div::before {
+    content: "// Entry";
+    color: #6a9955;
+    font-size: 0.8em;
+    position: absolute;
+    top: -20px;
+    left: 0;
 }
 
 .delete-button {
     float: right;
-    background-color: #dc3545;
+    background-color: #f14c4c;
     padding: 5px 10px;
     font-size: 0.8em;
+    border: none;
+    border-radius: 4px;
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .delete-button:hover {
-    background-color: #c82333;
+    background-color: #d44;
+    box-shadow: 0 0 10px rgba(241, 76, 76, 0.3);
 }
 
 em {
-    color: #666;
+    color: #9cdcfe;
     font-size: 0.9em;
     margin-left: 10px;
+    font-style: normal;
+}
+
+/* 입력 필드 포커스 효과 */
+input[type="text"]:focus, textarea:focus {
+    outline: none;
+    border-color: #4fc1ff;
+    box-shadow: 0 0 10px rgba(79, 193, 255, 0.2);
+}
+
+/* 방명록 항목 호버 효과 */
+#guestbookEntries > div:hover {
+    border-color: #4fc1ff;
+    box-shadow: 0 0 15px rgba(86, 156, 214, 0.2);
 } 

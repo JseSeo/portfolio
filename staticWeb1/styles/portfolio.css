@@ -1,164 +1,207 @@
 .portfolio-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
-    color: #333;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #2c3e50;
-    font-size: 2.5rem;
-}
-
-.architecture-section {
-    background-color: #fff;
+    background-color: #2d2d2d;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    padding: 2rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #3e3e3e;
+    color: #d4d4d4;
+    font-family: 'Consolas', 'Monaco', monospace;
 }
 
-h2 {
-    color: #2c3e50;
-    margin-bottom: 2rem;
-    font-size: 2rem;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 0.5rem;
+/* 스크롤바 스타일 */
+.portfolio-container::-webkit-scrollbar {
+    width: 8px;
 }
 
-.aws-image {
+.portfolio-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.portfolio-container::-webkit-scrollbar-thumb {
+    background: #569cd6;
+    border-radius: 4px;
+}
+
+.portfolio-container::-webkit-scrollbar-thumb:hover {
+    background: #4fc1ff;
+}
+
+/* 제목 스타일 */
+.portfolio-container h1 {
+    color: #569cd6;
     text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(86, 156, 214, 0.3);
+}
+
+/* 섹션 스타일 */
+.architecture-section {
+    width: 100%;
+    padding: 2rem;
+    background-color: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #569cd6;
+}
+
+/* AWS 이미지 컨테이너 */
+.aws-image {
     margin: 2rem 0;
+    text-align: center;
 }
 
 .aws-image img {
     max-width: 100%;
-    height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 0 20px rgba(86, 156, 214, 0.2);
 }
 
-.architecture-details {
-    margin-top: 3rem;
-}
-
-h3 {
-    color: #2c3e50;
-    margin: 2rem 0 1.5rem;
-    font-size: 1.8rem;
-}
-
+/* 서비스 아이템 스타일 */
 .service-item {
-    background-color: #f8f9fa;
-    border-radius: 8px;
+    background-color: #2d2d2d;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border-radius: 8px;
+    border: 1px solid #4ec9b0;
+    box-shadow: 0 0 15px rgba(78, 201, 176, 0.1);
 }
 
-h4 {
-    color: #3498db;
+/* 메서드 이름처럼 스타일링 */
+.service-item h4 {
+    color: #dcdcaa; /* Java 메서드 색상 */
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.service-item h4::before {
+    content: "public void ";
+    color: #569cd6; /* public 키워드 색상 */
+}
+
+.service-item h4::after {
+    content: "() {";
+    color: #d4d4d4;
+}
+
+/* 메서드 내용 스타일링 */
+.service-details {
+    margin-left: 1.5rem;
+    padding-left: 2rem;
+    border-left: 1px dotted #569cd6;
     margin-bottom: 1rem;
-    font-size: 1.4rem;
 }
 
-h5 {
-    color: #2c3e50;
+/* 역할과 장점 레이블 스타일링 */
+.service-details h5 {
+    color: #4fc1ff;
     margin: 1rem 0 0.5rem;
-    font-size: 1.1rem;
+    font-size: 0.9rem;
+    font-weight: normal;
 }
 
+.service-details h5::before {
+    content: "// ";
+    color: #6a9955;
+}
+
+/* 리스트 아이템 스타일링 */
 .service-details ul {
     list-style: none;
-    padding-left: 1.5rem;
+    padding-left: 3.5rem;
     margin-bottom: 1rem;
+    position: relative;
 }
 
 .service-details li {
-    position: relative;
+    color: #ce9178;
     margin-bottom: 0.5rem;
-    line-height: 1.6;
+    position: relative;
+    line-height: 1.5;
+    padding-left: 1rem;
 }
 
 .service-details li::before {
-    content: "•";
-    color: #3498db;
+    content: "return";
+    color: #c586c0;
     position: absolute;
-    left: -1rem;
+    left: -4.5rem;
+    width: 4rem;
+    text-align: right;
 }
 
+/* 메서드 닫는 괄호 추가 */
+.service-item::after {
+    content: "}";
+    display: block;
+    color: #d4d4d4;
+    margin-top: 0.5rem;
+}
+
+/* 호버 효과 */
+.service-item:hover {
+    border-color: #4fc1ff;
+    box-shadow: 0 0 20px rgba(79, 193, 255, 0.2);
+}
+
+.service-item:hover .service-details {
+    border-left-color: #4fc1ff;
+}
+
+/* 아키텍처 장점 섹션 */
 .architecture-benefits {
-    background-color: #f8f9fa;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #2d2d2d;
     border-radius: 8px;
-    padding: 2rem;
-    margin-top: 3rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    border: 1px solid #569cd6;
+}
+
+.architecture-benefits h3 {
+    color: #4ec9b0;
+    margin-bottom: 1rem;
 }
 
 .architecture-benefits ul {
     list-style: none;
-    padding-left: 1.5rem;
+    padding-left: 1.2rem;
 }
 
 .architecture-benefits li {
+    color: #ce9178;
+    margin-bottom: 0.5rem;
     position: relative;
-    margin-bottom: 1rem;
-    line-height: 1.6;
 }
 
 .architecture-benefits li::before {
-    content: "✓";
-    color: #27ae60;
+    content: "→";
     position: absolute;
-    left: -1.5rem;
+    left: -1.2rem;
+    color: #569cd6;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .portfolio-container {
+        margin: 1rem;
         padding: 1rem;
     }
-    
-    h1 {
+
+    .portfolio-container h1 {
         font-size: 2rem;
     }
-    
-    h2 {
-        font-size: 1.6rem;
+
+    .architecture-section {
+        padding: 1rem;
     }
-    
-    h3 {
-        font-size: 1.4rem;
-    }
-    
-    h4 {
-        font-size: 1.2rem;
-    }
-    
+
     .service-item {
         padding: 1rem;
     }
-    
-    .architecture-benefits {
-        padding: 1.5rem;
-    }
-}
-
-/* 스크롤바 스타일링 */
-::-webkit-scrollbar {
-    width: 8px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #3498db;
-    border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: #2980b9;
 } 

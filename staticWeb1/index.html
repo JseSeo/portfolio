@@ -7,6 +7,7 @@
     <title>김재서 포트폴리오</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/@egjs/flicking/dist/flicking.pkgd.min.js" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking.css" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://unpkg.com/@egjs/flicking/dist/flicking-inline.css" crossorigin="anonymous" />
 </head>
@@ -34,11 +35,11 @@
         <h2>프로젝트</h2>
         <div id="flick" class="flicking-viewport">
             <div class="flicking-camera">
-                <div class="flicking-item pink" style="width: 150px;"> 재능대학교 캡스톤 홈페이지</div>
+                <div class="flicking-item pink" style="width: 150px;"> 깃허브</div>
                 <div class="flicking-item orange" style="width: 200px;"> 포트폴리오 페이지 </div>
-                <div class="flicking-item yellow" style="width: 300px;">🥐 바게트 킹</div>
-                <div class="flicking-item blue" style="width: 250px;">🥛 아침 목장</div>
-                <div class="flicking-item green" style="width: 200px;">🍎 해피 과일</div>
+                <div class="flicking-item yellow" style="width: 300px;">재능대학교 캡스톤 홈페이지</div>
+                <div class="flicking-item blue" style="width: 250px;"> Null </div>
+                <div class="flicking-item green" style="width: 200px;"> Null </div>
             </div>
         </div>
     </section>
@@ -49,53 +50,14 @@
 
     <!-- 방명록 섹션 -->
     <section id="guestbook">
-        <iframe src="pages/guestBook.html" width="100%" height="600px" frameborder="0"></iframe>
+        <iframe src="pages/guestBook.html"  width="100%" height="600px" frameborder="0"></iframe>
     </section>
 
     <!-- 푸터 -->
     <footer>
         <p>&copy; 포트폴리오</p>
     </footer>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const flicking = new Flicking("#flick", {
-                circular: true,
-                bound: true
-            });
 
-            // flicking-item 클릭 이벤트 처리
-            const flickingItems = document.querySelectorAll('.flicking-item');
-            const portfolioSection = document.querySelector('#portfolio');
-
-            flickingItems.forEach(item => {
-                item.addEventListener('click', function() {
-                    if (this.classList.contains('orange')) {
-                        Promise.all([
-                            fetch('pages/portfolio.html'),
-                            fetch('styles/portfolio.css')
-                        ])
-                        .then(async ([htmlResponse, cssResponse]) => {
-                            const html = await htmlResponse.text();
-                            const css = await cssResponse.text();
-                            
-                            // CSS 스타일 적용
-                            const styleElement = document.createElement('style');
-                            styleElement.textContent = css;
-                            document.head.appendChild(styleElement);
-                            
-                            // HTML 콘텐츠에서 이미지 경로 수정
-                            const modifiedHtml = html.replace('src="../images/aws.png"', 'src="images/aws.png"');
-                            
-                            // 수정된 HTML 콘텐츠 적용
-                            portfolioSection.innerHTML = modifiedHtml;
-                            portfolioSection.scrollIntoView({ behavior: 'smooth' });
-                        })
-                        .catch(error => console.error('Error:', error));
-                    }
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
