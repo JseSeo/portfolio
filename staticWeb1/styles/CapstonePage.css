@@ -1,9 +1,34 @@
 .capstone-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 2rem auto;
     padding: 2rem;
+    background-color: #2d2d2d;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    border: 1px solid #3e3e3e;
     color: #d4d4d4;
     font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.capstone-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.capstone-container::-webkit-scrollbar-track {
+    background: #1e1e1e;
+}
+
+.capstone-container::-webkit-scrollbar-thumb {
+    background: #569cd6;
+    border-radius: 4px;
+}
+
+.capstone-container::-webkit-scrollbar-thumb:hover {
+    background: #4fc1ff;
 }
 
 h1 {
@@ -38,31 +63,74 @@ h3 {
 }
 
 .component {
-    background-color: #1e1e1e;
+    background-color: #2d2d2d;
     padding: 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 8px;
-    border: 1px solid #569cd6;
-    box-shadow: 0 0 15px rgba(86, 156, 214, 0.1);
+    border: 1px solid #4ec9b0;
+    box-shadow: 0 0 15px rgba(78, 201, 176, 0.1);
+}
+
+.component h3 {
+    color: #dcdcaa;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: normal;
+}
+
+.component h3::before {
+    content: "public void ";
+    color: #569cd6;
+}
+
+.component h3::after {
+    content: "() {";
+    color: #d4d4d4;
 }
 
 .component ul {
     list-style: none;
-    padding-left: 1.5rem;
+    padding-left: 0;
+    margin-bottom: 1rem;
+    position: relative;
 }
 
 .component li {
-    position: relative;
-    margin-bottom: 0.8rem;
-    line-height: 1.6;
     color: #ce9178;
+    margin-bottom: 0.5rem;
+    position: relative;
+    line-height: 1.5;
+    padding-left: 4rem;
 }
 
 .component li::before {
-    content: "→";
-    color: #569cd6;
+    content: "return";
+    color: #c586c0;
     position: absolute;
-    left: -1rem;
+    left: 0;
+    width: 4rem;
+    text-align: right;
+}
+
+.component::after {
+    content: "}";
+    display: block;
+    color: #d4d4d4;
+    margin-top: 0.5rem;
+}
+
+.component:hover {
+    border-color: #4fc1ff;
+    box-shadow: 0 0 20px rgba(79, 193, 255, 0.2);
+}
+
+.component:hover ul {
+    border-left-color: #4fc1ff;
+}
+
+.component ul {
+    border-left: 1px dotted #569cd6;
+    padding-left: 1.5rem;
 }
 
 .aws-services {
@@ -194,4 +262,4 @@ h3 {
     .service-grid {
         grid-template-columns: 1fr;
     }
-}
+} 
