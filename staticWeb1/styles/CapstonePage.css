@@ -1,234 +1,148 @@
+/* 전체 페이지 설정 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #1e1e1e; /* 다크 테마 배경 */
+    color: #d4d4d4; /* 텍스트 색상 */
+    font-family: 'Consolas', 'Courier New', monospace; /* 개발자 친화적 폰트 */
+    line-height: 1.6;
+}
+
+/* 컨테이너 설정 */
 .capstone-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
     max-width: 1200px;
-    margin: 2rem auto;
+    margin: 3rem auto;
     padding: 2rem;
-    background-color: #2d2d2d;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background-color: #252526; /* 코드 에디터 배경 */
     border: 1px solid #3e3e3e;
-    color: #d4d4d4;
-    font-family: 'Consolas', 'Monaco', monospace;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
-.capstone-container::-webkit-scrollbar {
-    width: 8px;
-}
-
-.capstone-container::-webkit-scrollbar-track {
-    background: #1e1e1e;
-}
-
-.capstone-container::-webkit-scrollbar-thumb {
-    background: #569cd6;
-    border-radius: 4px;
-}
-
-.capstone-container::-webkit-scrollbar-thumb:hover {
-    background: #4fc1ff;
+/* 제목 스타일 */
+h1, h2, h3 {
+    color: #569cd6; /* 키워드 스타일 */
+    margin: 1.5rem 0 1rem;
+    text-shadow: 0 0 5px rgba(86, 156, 214, 0.3);
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 3rem;
-    color: #569cd6;
     font-size: 2.5rem;
-    text-shadow: 0 0 10px rgba(86, 156, 214, 0.3);
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 h2 {
-    color: #4ec9b0;
-    margin: 2rem 0 1.5rem;
-    font-size: 2rem;
-    border-bottom: 2px solid #569cd6;
+    border-bottom: 2px solid #3e3e3e;
     padding-bottom: 0.5rem;
+    font-size: 2rem;
 }
 
 h3 {
-    color: #9cdcfe;
-    margin: 1.5rem 0 1rem;
     font-size: 1.5rem;
+    color: #9cdcfe; /* 함수 호출 색상 */
 }
 
-.project-overview {
-    background-color: #2d2d2d;
-    padding: 2rem;
-    border-radius: 8px;
+/* 섹션 간 여백 */
+.project-overview,
+.features,
+.benefits,
+.aws-services {
     margin-bottom: 2rem;
-    border: 1px solid #569cd6;
-    box-shadow: 0 0 20px rgba(86, 156, 214, 0.1);
 }
 
-.component {
-    background-color: #2d2d2d;
+/* 박스 스타일 */
+.component,
+.project-overview,
+.benefits {
+    background-color: #1e1e1e;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #4ec9b0;
-    box-shadow: 0 0 15px rgba(78, 201, 176, 0.1);
+    border: 1px solid #3e3e3e;
+    border-radius: 5px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.component h3 {
-    color: #dcdcaa;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: normal;
-}
-
-.component h3::before {
-    content: "public void ";
-    color: #569cd6;
-}
-
+.component h3::before,
 .component h3::after {
-    content: "() {";
-    color: #d4d4d4;
-}
-
-.component ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 1rem;
-    position: relative;
-}
-
-.component li {
-    color: #ce9178;
-    margin-bottom: 0.5rem;
-    position: relative;
-    line-height: 1.5;
-    padding-left: 4rem;
+    color: #c586c0; /* 함수 시그니처 색상 */
 }
 
 .component li::before {
-    content: "return";
-    color: #c586c0;
-    position: absolute;
-    left: 0;
-    width: 4rem;
-    text-align: right;
+    content: "// ";
+    color: #6a9955; /* 주석 색상 */
+    font-weight: bold;
 }
 
-.component::after {
-    content: "}";
-    display: block;
-    color: #d4d4d4;
-    margin-top: 0.5rem;
-}
-
-.component:hover {
-    border-color: #4fc1ff;
-    box-shadow: 0 0 20px rgba(79, 193, 255, 0.2);
-}
-
-.component:hover ul {
-    border-left-color: #4fc1ff;
-}
-
-.component ul {
-    border-left: 1px dotted #569cd6;
-    padding-left: 1.5rem;
-}
-
-.aws-services {
-    background-color: #2d2d2d;
-    padding: 2rem;
-    border-radius: 8px;
-    margin: 2rem 0;
-    border: 1px solid #569cd6;
-}
-
-.service-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.service {
-    background-color: #1e1e1e;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #4ec9b0;
-    box-shadow: 0 0 15px rgba(78, 201, 176, 0.1);
-}
-
-.service h4 {
-    color: #4ec9b0;
-    margin-bottom: 0.8rem;
-}
-
-.features ul {
+/* 리스트 스타일 */
+ul {
     list-style: none;
     padding-left: 0;
 }
 
-.features li {
-    background-color: #2d2d2d;
-    padding: 1rem;
-    margin-bottom: 1rem;
-    border-radius: 8px;
-    border: 1px solid #569cd6;
+li {
+    color: #dcdcaa; /* 상수 값 색상 */
+    margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+li::before {
+    content: "> ";
+    color: #ce9178; /* 코드 강조 */
+    position: absolute;
+    left: 0;
+}
+
+/* 이미지 스타일 */
+.architecture-image img {
+    max-width: 100%;
+    display: block;
+    margin: 1.5rem auto;
+    border: 1px solid #3e3e3e;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+/* 링크 스타일 */
+a {
+    color: #569cd6;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #4fc1ff;
+    text-decoration: underline;
+}
+
+/* AWS 서비스 그리드 */
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.service {
+    background-color: #252526;
+    padding: 1.5rem;
+    border: 1px solid #3e3e3e;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
     color: #d4d4d4;
 }
 
-.features strong {
-    color: #9cdcfe;
-    margin-right: 0.5rem;
+.service h4 {
+    color: #4ec9b0; /* 변수 색상 */
+    margin-bottom: 0.5rem;
 }
 
-.benefits {
-    background-color: #2d2d2d;
-    padding: 2rem;
-    border-radius: 8px;
-    margin-top: 2rem;
-    border: 1px solid #569cd6;
-    box-shadow: 0 0 20px rgba(86, 156, 214, 0.1);
-}
-
-.project-link {
-    margin-top: 1.5rem;
-    padding: 1rem;
-    background-color: #2d2d2d;
-    border-radius: 4px;
-    border: 1px solid #569cd6;
-}
-
-.project-link a {
-    color: #569cd6;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.project-link a:hover {
-    color: #4fc1ff;
-    text-decoration: none;
-    text-shadow: 0 0 10px rgba(79, 193, 255, 0.3);
-}
-
-.demonstration-video {
-    margin-top: 2rem;
-    padding: 1rem;
-    background-color: #2d2d2d;
-    border-radius: 8px;
-    border: 1px solid #569cd6;
-}
-
-.demonstration-video h3 {
-    margin-bottom: 1rem;
-    color: #4ec9b0;
-}
-
+/* 비디오 스타일 */
 .video-container {
     position: relative;
     padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     border-radius: 4px;
-    box-shadow: 0 0 20px rgba(86, 156, 214, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .video-container video {
@@ -237,29 +151,24 @@ h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    border-radius: 4px;
     background-color: #1e1e1e;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .capstone-container {
-        padding: 1rem;
+        padding: 1.5rem;
     }
-    
+
     h1 {
         font-size: 2rem;
     }
-    
+
     h2 {
         font-size: 1.6rem;
     }
-    
-    h3 {
-        font-size: 1.3rem;
-    }
-    
+
     .service-grid {
         grid-template-columns: 1fr;
     }
-} 
+}
