@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function () {
         item.addEventListener('click', function() {
             if (this.classList.contains('yellow')) {  // 캡스톤 프로젝트 항목
                 Promise.all([
-                    fetch('pages/capstonePage.html'),
-                    fetch('styles/capstonePage.css')
+                    fetch('pages/CapstonePage.html'),
+                    fetch('styles/CapstonePage.css')
                 ])
                 .then(async ([htmlResponse, cssResponse]) => {
                     const html = await htmlResponse.text();
